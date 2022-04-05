@@ -14,9 +14,13 @@ function App() {
 
   const handleClick0 = () => {
     setCuenta(cuenta - cuenta);
+    setPaso(1);
   };
 
   const handleInputChange = (e) => {
+    if (isNaN(e.target.value)) {
+      return;
+    }
     setPaso(Number(e.target.value));
   }
 
