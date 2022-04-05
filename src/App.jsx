@@ -2,18 +2,23 @@ import { useState } from "react";
 
 function App() {
   const [cuenta, setCuenta] = useState(0);
+  const [paso, setPaso] = useState(1);
 
   const handleClick = () => {
-    setCuenta(cuenta + 1);
+    setCuenta(cuenta + paso);
   };
 
   const handleClick1 = () => {
-    setCuenta(cuenta - 1);
+    setCuenta(cuenta - paso);
   };
 
   const handleClick0 = () => {
     setCuenta(cuenta - cuenta);
   };
+
+  const handleInputChange = (e) => {
+    setPaso(Number(e.target.value));
+  }
 
   return (
     <div className="App">
@@ -29,6 +34,21 @@ function App() {
             marginRight: "5px",
           }}
         >
+          <div class="input-group me-3">
+            <span class="input-group-text" id="basic-addon1">
+                Paso
+            </span>
+            <input
+              name="paso"
+              id="paso"
+              value={paso}
+              type="text"
+              onChange={handleInputChange}
+              class="form-control"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
           <button
             type="button"
             onClick={() => {
@@ -56,7 +76,6 @@ function App() {
           >
             Reset
           </button>
-
         </div>
       </div>
     </div>
